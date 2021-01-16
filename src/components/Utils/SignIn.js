@@ -12,7 +12,13 @@ function SignIn() {
   };
 
   return (
-    <button className="sign-in" onClick={signInWithGoogle}>
+    <button
+      className="sign-in"
+      onClick={() => {
+        signInWithGoogle()
+
+      }}
+    >
       Sign in using Google
     </button>
   );

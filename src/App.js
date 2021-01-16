@@ -26,9 +26,26 @@ const firestore = firebase.firestore();
 function App() {
   const [user] = useAuthState(auth);
 
+  const registerUser = async () => {
+    const { uid, photoURL, email, displayName } = auth.currentUser;
+    const usersRef = firestore.collection("users");
+    const doc = await usersRef.doc(uid).get();
+    if (!doc.exists) {
+      console.log('Welcome to our app!')
+      usersRef.doc(uid).set({
+        uid: uid,
+        name: displayName,
+        email: email,
+        photoURL: photoURL,
+      });
+    } else {
+      console.log('Welcome back '+displayName+'!')
+    }
+  };
+
   return (
     <Router className="App">
-      {user ? (
+      {user && registerUser() ? (
         <header>
           <a class="logo" href="/">
             <img
@@ -40,18 +57,18 @@ function App() {
           <nav>
             <ul class="nav__links">
               <li>
-              <Link to="/competitive">Competitive</Link>
+                <Link to="/competitive">Competitive</Link>
               </li>
               <li>
-              <Link to="/unranked">Unranked</Link>
+                <Link to="/unranked">Unranked</Link>
               </li>
               <li>
-              <Link to="/custom">Custom</Link>
+                <Link to="/custom">Custom</Link>
               </li>
             </ul>
           </nav>
           <a class="cta" href="/">
-          <SignOut />
+            <SignOut />
           </a>
         </header>
       ) : (
