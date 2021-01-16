@@ -8,12 +8,12 @@ import "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
-// Components
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+// Components - Pages
 import Landing from "./components/Landing";
 
-
+// Components - Utils
+import SignIn from "./components/utils/SignIn";
+import SignOut from "./components/utils/SignOut";
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
@@ -25,25 +25,23 @@ function App() {
     <Router className="App">
       <nav>
         <ul>
-          <li>
+        <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/login">About</Link>
+            <Link to="/competitive">Competitive</Link>
           </li>
           <li>
-            <Link to="/signup">Users</Link>
+            <Link to="/unranked">Unranked</Link>
+          </li>
+          <li>
+            <Link to="/custom">Custom</Link>
           </li>
         </ul>
       </nav>
 
       <Switch>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/signup">
-          <Signup />
-        </Route>
+
         <Route path="/">
           <Landing />
         </Route>
