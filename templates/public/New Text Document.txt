@@ -1,0 +1,13 @@
+
+                <div><img src="images/mlogo.png" id="mlogo"></div>
+
+                <div><Link to="/">Home</Link></div>
+<div><Link to="/competitive">Competitive</Link></div>
+                <div><Link to="/unranked">Unranked</Link></div>
+                
+                <div><Link to="/custom">Custom</Link></div>
+                <div class="rightnav">
+                    <button id="logb">
+                        <a href="login.html">Sign Out </a>
+                    </button>
+                </div>

@@ -17,6 +17,9 @@ import Register from "./components/Register";
 import SignIn from "./components/utils/SignIn";
 import SignOut from "./components/utils/SignOut";
 
+// Stylesheet
+import "./App.css";
+
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
@@ -25,40 +28,28 @@ function App() {
 
   return (
     <Router className="App">
-      <nav>
+      <div>
         {user ? (
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/competitive">Competitive</Link>
-            </li>
-            <li>
-              <Link to="/unranked">Unranked</Link>
-            </li>
-            <li>
-              <Link to="/custom">Custom</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-            <li>
-              <SignOut />
-            </li>
-          </ul>
+          <nav>
+            <img src="https://i.imgur.com/ADMwlOq.png" id="mlogo"></img>
+            <Link to="/">Home</Link>
+            <Link to="/competitive">Competitive</Link>
+            <Link to="/unranked">Unranked</Link>
+            <Link to="/custom">Custom</Link>
+            <SignOut />
+          </nav>
         ) : (
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <SignIn />
-            </li>
-          </ul>
-        )}
-      </nav>
+          <nav>
+            <img src="https://i.imgur.com/ADMwlOq.png" id="mlogo"></img>
+            <Link to="/">Home</Link>
 
+            <button class="sign-in">
+              <Link to="/custom">Sign In</Link>
+            </button>
+          </nav>
+        )}
+      </div>
+          <SignIn/>
       <Switch>
         <Route path="/competitive">{user ? <Landing /> : <Login />}</Route>
         <Route path="/unranked">{user ? <Landing /> : <Login />}</Route>
