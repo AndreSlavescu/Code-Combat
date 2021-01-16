@@ -28,28 +28,57 @@ function App() {
 
   return (
     <Router className="App">
-      <div>
-        {user ? (
+      {user ? (
+        <header>
+          <a class="logo" href="/">
+            <img
+              src="https://i.imgur.com/ADMwlOq.png"
+              alt="logo"
+              class="logo-img"
+            />
+          </a>
           <nav>
-            <img src="https://i.imgur.com/ADMwlOq.png" id="mlogo"></img>
-            <Link to="/">Home</Link>
-            <Link to="/competitive">Competitive</Link>
-            <Link to="/unranked">Unranked</Link>
-            <Link to="/custom">Custom</Link>
-            <SignOut />
+            <ul class="nav__links">
+              <li>
+              <Link to="/competitive">Competitive</Link>
+              </li>
+              <li>
+              <Link to="/unranked">Unranked</Link>
+              </li>
+              <li>
+              <Link to="/custom">Custom</Link>
+              </li>
+            </ul>
           </nav>
-        ) : (
+          <a class="cta" href="/">
+          <SignOut />
+          </a>
+        </header>
+      ) : (
+        <header>
+          <a class="logo" href="/">
+            <img
+              src="https://i.imgur.com/ADMwlOq.png"
+              alt="logo"
+              class="logo-img"
+            />
+          </a>
           <nav>
-            <img src="https://i.imgur.com/ADMwlOq.png" id="mlogo"></img>
-            <Link to="/">Home</Link>
+            <ul class="nav__links">
+              <li>
+                <a href="/">About</a>
+              </li>
+            </ul>
+          </nav>
+          <a class="cta" href="/">
+            Sign In
+          </a>
+          <p class="menu cta">Sign Up</p>
+        </header>
+      )}
 
-            <button class="sign-in">
-              <Link to="/custom">Sign In</Link>
-            </button>
-          </nav>
-        )}
-      </div>
-          <SignIn/>
+      {user ? <div /> : <SignIn />}
+
       <Switch>
         <Route path="/competitive">{user ? <Landing /> : <Login />}</Route>
         <Route path="/unranked">{user ? <Landing /> : <Login />}</Route>

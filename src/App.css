@@ -1,100 +1,73 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-.App {
-  height: 100vh;
-  background-size: 100%;
-  margin: 0;
-  height: 100vh;
-}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-.landing-bg {
-  background-image: url("./images/bg-square.png");
-  /*background-image: url("https://images2.imgbox.com/ce/2a/m8JFdUCC_o.png");*/
-  background-size: 100% 100%;
-  margin: 0;
-  height: 100vh;
-  /*background-color: purple;*/
-}
+  header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 30px;
+    background: linear-gradient(to left, #8e2de2, #4a00e0);
+    background-color: #24252a;
+  }
 
-#mlogo {
-  max-width: 3rem;
-  max-height: 3rem;
-  margin-right: 40px;
-  vertical-align: middle;
-}
+  .logo {
+    margin-right: auto;
+  }
 
-nav {
-  vertical-align: text-bottom;
-  background-image: linear-gradient(to left, #8e2de2, #4a00e0);
-  display: flex;
-  flex-direction: row;
-  padding: 20px;
-  font-size: 2rem;
-}
+  .logo-img{
+    max-width: 5rem;
+    max-height: 5rem;
+  }
 
-nav > a {
-  color: #ffffff;
-  text-decoration: none;
-  font-family: Arial;
-  margin-left: 20px;
-  margin-right: 5px;
-}
+  .nav__links {
+    list-style: none;
+    display: flex;
+  }
 
-.context {
-  display: flex;
-  height: 550px;
-  justify-content: center;
-  align-items: flex-end;
-}
+  .nav__links a,
+  .cta,
+  .overlay__content a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: #edf0f1;
+    text-decoration: none;
+  }
 
-#startb {
-  background-color: #26eded;
-  color: #060505;
-  border-radius: 5px;
-  display: flex;
-  padding: 25px 50px;
-  font-size: 20px;
-  font-family: Arial;
-}
+  .nav__links li {
+    padding: 0px 20px;
+  }
 
-.footer {
-  background-image:  linear-gradient(to right, #8e2de2, #4a00e0);
-  position: absolute;
-  bottom: 0px;
-  padding-bottom: 18px;
-  padding-top: 18px;
-}
+  .nav__links li a {
+    transition: all 0.3s ease 0s;
+  }
 
-.sign-out {
-  background-color: #26eded;
-  color: #0f081d;
-  border-radius: 3px;
-  border: none;
-  margin-left: auto;
-  text-align: center;
-  text-decoration: none;
-}
+  .nav__links li a:hover {
+    color: #0088a9;
+  }
 
-.sign-in {
-  margin-right: auto;
-  background-color: #451980;
-  color: white;
-  border-radius: 3px;
-  border: none;
-  text-align: center;
-  text-decoration: none;
-}
+  .cta {
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+  }
 
-.sign-in > a {
-  color: white;
-}
+  .cta:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+  }
 
-#form {
-  background-color: white;
-  width: 700px;
-  height: 640px;
-  margin-left: 380px;
-  margin-top: 0px;
+  button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
