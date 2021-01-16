@@ -1,12 +1,26 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+import firebase from './firebaseConfig';
+import "firebase/firestore";
+import "firebase/auth";
+
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useCollectionData } from "react-firebase-hooks/firestore";
+
 // Components
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Landing from "./components/Landing";
 
+
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
 function App() {
+  const [user] = useAuthState(auth);
+
   return (
     <Router className="App">
       <nav>
