@@ -1,0 +1,97 @@
+
+body{
+    background-image: url("images/backg.png");
+    background-size: 100%;
+    margin:0;
+    height: 100vh;
+    /*background-color: purple;*/
+}
+.page{height: 100vh;}
+
+nav{
+    background-image:linear-gradient(#2B047C,#0F081D);
+    display:flex;
+    flex-direction: row;
+   
+    padding-bottom: 20px;
+    padding-top: 20px;
+    
+    
+}
+#mlogo{
+    max-width: 50px;
+    margin-left: 20px;
+    margin-top: -12px;
+    margin-bottom: -15px;
+   
+}
+a{
+    color:#FFFFFF;
+    text-decoration: none;
+    font-family: Arial;
+    margin-left: 20px;
+    margin-right: 5px;
+   
+    
+}
+.context{
+    display: flex;
+    height: 550px;
+    justify-content: center;
+    align-items: flex-end;
+   
+}
+#startb{
+    background-color: #26EDED;
+    color: #060505;
+    border-radius: 5px;
+    display: flex;
+    padding: 25px 50px;
+    font-size: 20px;
+    font-family: Arial;
+   
+
+}
+.footer{
+    
+    background-image:linear-gradient(#2B047C,#0F081D);
+    position: absolute;
+    bottom:0px;
+    padding-bottom: 18px;
+    padding-top: 18px;
+}
+.rightnav{
+  
+}
+#logb{
+    
+    background-color: #26EDED;
+    color: #0F081D;
+    border-radius: 3px;
+    border: none;
+    margin-left: 30px;
+    padding: 10px 18px;
+    text-align: center;
+    text-decoration: none;
+    
+    
+
+}
+#signb{
+    margin-left: 800px;
+    background-color: #451980;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    padding: 10px 18px;
+    text-align: center;
+    text-decoration: none;
+}
+#form{
+    background-color: white;
+    width: 700px;
+    height: 640px;
+   margin-left: 380px;
+   margin-top:0px;
+
+}
