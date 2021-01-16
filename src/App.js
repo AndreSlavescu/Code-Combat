@@ -11,6 +11,7 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 // Components - Pages
 import Landing from "./components/Landing";
 import Login from "./components/Login";
+import Register from "./components/Register";
 
 // Components - Utils
 import SignIn from "./components/utils/SignIn";
