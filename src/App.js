@@ -12,14 +12,12 @@ import "firebase/firestore";
 import "firebase/auth";
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollectionData } from "react-firebase-hooks/firestore";
 
 // Components - Pages
 import Landing from "./components/Landing";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Game from "./components/Game";
-import Lobby from "./components/Lobby";
 
 // Components - Utils
 import SignIn from "./components/utils/SignIn";
@@ -106,8 +104,8 @@ function App() {
       {user ? <div /> : <SignIn />}
 
       <Switch>
-        <Route path="/lobby">{user ? <Lobby /> : <Login />}</Route>
-        <Route path="/game">{user ? <Game /> : <Login />}</Route>
+        <Route path="/lobby">{user ? <Landing /> : <Login />}</Route>
+        <Route path="/game/:id">{user ? <Game /> : <Login />}</Route>
         <Route path="/unranked">{user ? <Landing /> : <Login />}</Route>
         <Route path="/custom">{user ? <Landing /> : <Login />}</Route>
         <Route path="/profile">{user ? <Landing /> : <Login />}</Route>

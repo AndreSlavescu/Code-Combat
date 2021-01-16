@@ -7,28 +7,24 @@ const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 function Lobby() {
-  const [gameURL, setGameURL] = useState("");
+  const { uid, displayName } = auth.currentUser;
 
-  useEffect(() => {
-    const gamesRef = firestore.collection("games")
-    gamesRef.limit(10).get().then(querySnapshot => {
-        if (!querySnapshot.empty) {
-            //We know there is one doc in the querySnapshot
-            const queryDocumentSnapshot = querySnapshot.docs[0].data();
-            console.log(querySnapshot.docs[0].data())
-            //return queryDocumentSnapshot.ref.delete();
-        } else {
-            console.log("No document corresponding to the query!");
-            return null;
-        }
+  const playersRef = firestore
+    .collection("games")
+    .doc("test")
+    .collection("players");
+  const query = playersRef.orderBy("createdAt", "desc").limit(10);
+
+  const [players] = useCollectionData(query, { idField: "id" });
+
+  const addSelf = () => {
+    playersRef.doc(uid).set({
+      uid,
+      displayName,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
     });
-  });
+  };
 
-  return (
-    <div>
-      <div>Lobby</div>
-    </div>
-  );
+  return addSelf() && <div></div>;
 }
-
 export default Lobby;
