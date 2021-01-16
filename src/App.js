@@ -8,37 +8,33 @@ import Landing from "./components/Landing";
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/login">About</Link>
-              </li>
-              <li>
-                <Link to="/signup">Users</Link>
-              </li>
-            </ul>
-          </nav>
+    <Router className="App">
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/login">About</Link>
+          </li>
+          <li>
+            <Link to="/signup">Users</Link>
+          </li>
+        </ul>
+      </nav>
 
-          <Switch>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/signup">
-              <Signup />
-            </Route>
-            <Route path="/">
-              <Landing />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </div>
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/signup">
+          <Signup />
+        </Route>
+        <Route path="/">
+          <Landing />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
