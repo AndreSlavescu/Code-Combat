@@ -1,5 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+} from "react-router-dom";
 
 import firebase from "./firebaseConfig";
 import "firebase/firestore";
@@ -12,6 +18,8 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import Landing from "./components/Landing";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Game from "./components/Game";
+import Lobby from "./components/Lobby";
 
 // Components - Utils
 import SignIn from "./components/utils/SignIn";
@@ -31,15 +39,16 @@ function App() {
     const usersRef = firestore.collection("users");
     const doc = await usersRef.doc(uid).get();
     if (!doc.exists) {
-      console.log('Welcome to our app!')
+      console.log("Welcome to our app!");
       usersRef.doc(uid).set({
         uid: uid,
         name: displayName,
         email: email,
         photoURL: photoURL,
+        ELO: 1000,
       });
     } else {
-      console.log('Welcome back '+displayName+'!')
+      console.log("Welcome back " + displayName + "!");
     }
   };
 
@@ -57,10 +66,10 @@ function App() {
           <nav>
             <ul class="nav__links">
               <li>
-                <Link to="/competitive">Competitive</Link>
+                <Link to="/lobby">Competitive</Link>
               </li>
               <li>
-                <Link to="/unranked">Unranked</Link>
+                <Link to="/lobby">Unranked</Link>
               </li>
               <li>
                 <Link to="/custom">Custom</Link>
@@ -97,13 +106,12 @@ function App() {
       {user ? <div /> : <SignIn />}
 
       <Switch>
-        <Route path="/competitive">{user ? <Landing /> : <Login />}</Route>
+        <Route path="/lobby">{user ? <Lobby /> : <Login />}</Route>
+        <Route path="/game">{user ? <Game /> : <Login />}</Route>
         <Route path="/unranked">{user ? <Landing /> : <Login />}</Route>
         <Route path="/custom">{user ? <Landing /> : <Login />}</Route>
         <Route path="/profile">{user ? <Landing /> : <Login />}</Route>
-        <Route path="/">
-          <Landing />
-        </Route>
+        <Route path="/"><Landing /></Route>
       </Switch>
     </Router>
   );
