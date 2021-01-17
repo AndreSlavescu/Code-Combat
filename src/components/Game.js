@@ -9,7 +9,12 @@ function Game() {
   const [widget, setWidget] = useState("");
   const escFunction = useCallback((event) => {
     if (event.keyCode === 27) {
-      alert("Congrats you earned 27pts!")
+      //
+      // The String to change is below
+      //
+      //
+      //
+      alert("Speed Score: 14pts\nEfficiency Score: 13pts\nTotal Points: 27pts!")
     }
   }, []);
   useEffect(() => {
