@@ -10,7 +10,7 @@ import {
 import firebase from "./firebaseConfig";
 import "firebase/firestore";
 import "firebase/auth";
-
+import Timer from "react-compound-timer";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 // Components - Pages
@@ -95,24 +95,44 @@ function App() {
             </ul>
           </nav>
           <a class="cta" href="/">
-            Sign In
+          <SignIn />
           </a>
-          <p class="menu cta">Sign Up</p>
         </header>
       )}
-
-      {user ? <div /> : <SignIn />}
-
       <Switch>
         <Route path="/lobby">{user ? <Landing /> : <Login />}</Route>
-        <Route path="/game/:id">{user ? <Game /> : <Login />}</Route>
+        <Route path="/game/:id">
+          {user ? (
+            <div>
+              <Game />
+              <footer>
+                <div></div>
+              </footer>
+            </div>
+          ) : (
+            <Login />
+          )}
+        </Route>
         <Route path="/unranked">{user ? <Landing /> : <Login />}</Route>
         <Route path="/custom">{user ? <Landing /> : <Login />}</Route>
         <Route path="/profile">{user ? <Landing /> : <Login />}</Route>
-        <Route path="/"><Landing /></Route>
+        <Route path="/">
+          <Landing />
+        </Route>
       </Switch>
     </Router>
   );
 }
 
 export default App;
+
+/*
+                  <Timer initialTime={600000} direction="backward">
+                    {() => (
+                      <React.Fragment>
+                        <Timer.Minutes /> minutes and <Timer.Seconds /> seconds
+                      </React.Fragment>
+                    )}
+                  </Timer>
+
+*/

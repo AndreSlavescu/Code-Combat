@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import firebase from "../firebaseConfig";
 
+
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
@@ -23,8 +24,8 @@ function Game() {
           frameborder="1"
           marginheight="0px"
           marginwidth="0px"
-          height="900px"
-          width="700px"
+          height="1150px"
+          width="1670px"
         ></iframe>
       </div>
     </div>
