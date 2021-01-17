@@ -31,7 +31,12 @@ const firestore = firebase.firestore();
 
 function App() {
   const [user] = useAuthState(auth);
-
+  //
+  //
+  // The Striong foijdsiopfj here!
+  //
+  //
+  const garbik = "Playing Against Player 2"
   const registerUser = async () => {
     const { uid, photoURL, email, displayName } = auth.currentUser;
     const usersRef = firestore.collection("users");
@@ -103,7 +108,7 @@ function App() {
             <div>
               <Game />
               <footer>
-                <div></div>
+                <div>{garbik}</div>
               </footer>
             </div>
 
