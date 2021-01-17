@@ -13,7 +13,7 @@ function Game() {
       //
       //
       //
-      alert("Speed Score: 14pts\nEfficiency Score: 13pts\nTotal Points: 27pts!")
+      alert("YOU WON \nSpeed Score: 14pts\nEfficiency Score: 13pts\nTotal Points: 27pts!")
     }
   }, []);
   useEffect(() => {
