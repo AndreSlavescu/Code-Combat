@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router-dom";
 import firebase from "../firebaseConfig";
 
 const auth = firebase.auth();

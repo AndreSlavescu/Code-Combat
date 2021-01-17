@@ -10,7 +10,6 @@ import {
 import firebase from "./firebaseConfig";
 import "firebase/firestore";
 import "firebase/auth";
-import Timer from "react-compound-timer";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 // Components - Pages
