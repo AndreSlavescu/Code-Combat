@@ -1,73 +1,83 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px 30px;
-    background: linear-gradient(#2B047C,#0F081D);
-    background-color: #24252a;
-  }
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 30px;
+  background: linear-gradient(#2b047c, #0f081d);
+  background-color: #24252a;
+}
 
-  .logo {
-    margin-right: auto;
-  }
+.logo {
+  margin-right: auto;
+}
 
-  .logo-img{
-    max-width: 5rem;
-    max-height: 5rem;
-  }
+.logo-img {
+  max-width: 5rem;
+  max-height: 5rem;
+}
 
-  .nav__links {
-    list-style: none;
-    display: flex;
-  }
+.nav__links {
+  list-style: none;
+  display: flex;
+}
 
-  .nav__links a,
-  .cta,
-  .overlay__content a {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    color: #edf0f1;
-    text-decoration: none;
-  }
+.nav__links a,
+.cta,
+.overlay__content a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
+}
 
-  .nav__links li {
-    padding: 0px 20px;
-  }
+.nav__links li {
+  padding: 0px 20px;
+}
 
-  .nav__links li a {
-    transition: all 0.3s ease 0s;
-  }
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+}
 
-  .nav__links li a:hover {
-    color: #0088a9;
-  }
+.nav__links li a:hover {
+  color: #0088a9;
+}
 
-  .cta {
-    margin-left: 20px;
-    padding: 9px 25px;
-    background-color: rgba(0, 136, 169, 1);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-  }
+.cta {
+  margin-left: 20px;
+  padding: 9px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
 
-  .cta:hover {
-    background-color: rgba(0, 136, 169, 0.8);
-  }
+.cta:hover {
+  background-color: rgba(0, 136, 169, 0.8);
+}
 
-  button, input[type="submit"], input[type="reset"] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+.code-content {
+    z-index: -5;
+  position: relative;
+}
+
+.content-blocker {
+  position: absolute;
+  top: -150px;
+  left: -50px;
 }
