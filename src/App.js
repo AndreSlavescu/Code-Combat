@@ -18,6 +18,7 @@ import Landing from "./components/Landing";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Game from "./components/Game";
+import Profile from "./components/Profile";
 
 // Components - Utils
 import SignIn from "./components/utils/SignIn";
@@ -67,15 +68,12 @@ function App() {
                 <Link to="/game/test">Competitive</Link>
               </li>
               <li>
-                <Link to="/lobby">Unranked</Link>
-              </li>
-              <li>
-                <Link to="/custom">Custom</Link>
+                <Link to="/game">Unranked</Link>
               </li>
             </ul>
           </nav>
-          <a class="cta" href="/leaderboard">
-            Leaderboard
+          <a class="cta" href="/profile">
+            Profile
           </a>
         </header>
       ) : (
@@ -102,20 +100,18 @@ function App() {
       <Switch>
         <Route path="/lobby">{user ? <Landing /> : <Login />}</Route>
         <Route path="/game/:id">
-          {user ? (
+
             <div>
               <Game />
               <footer>
                 <div></div>
               </footer>
             </div>
-          ) : (
-            <Login />
-          )}
+
         </Route>
-        <Route path="/unranked">{user ? <Landing /> : <Login />}</Route>
+
         <Route path="/custom">{user ? <Landing /> : <Login />}</Route>
-        <Route path="/profile">{user ? <Landing /> : <Login />}</Route>
+        <Route path="/profile"><Profile/></Route>
         <Route path="/">
           <Landing />
         </Route>

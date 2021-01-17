@@ -1,17 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import firebase from "../firebaseConfig";
-
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 function Game() {
   const [widget, setWidget] = useState("");
+  const escFunction = useCallback((event) => {
+    if (event.keyCode === 27) {
+      alert("Congrats you earned 27pts!")
+    }
+  }, []);
   useEffect(() => {
     setWidget(
       "https://hourofpython.trinket.io/python-challenges#/string-challenges/lowercase-challenge"
     );
+
+    document.addEventListener("keydown", escFunction, false);
+
+    return () => {
+      document.removeEventListener("keydown", escFunction, false);
+    };
   });
 
   return (

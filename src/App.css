@@ -67,6 +67,28 @@ footer {
   padding-top: 40vh;
 }
 
+.pfp {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
+  margin: auto;
+  text-align: center;
+  width: 50%;
+  padding: 10px;
+  padding-bottom: 40vh;
+  top: 40vh;
+  background-color: #24252a;
+}
+
+.pfp > img{
+    max-width: 250px;
+}
+
+.pfp > h4{
+    margin-top: 50px;
+}
+
+
 
 .landing-bg {
   background-size: cover;
@@ -119,13 +141,14 @@ button {
   cursor: pointer;
   outline: inherit;
 }
+
 .code-content {
   z-index: -5;
   position: relative;
 }
 
 .content-blocker {
-  position: absolute;
+    position: absolute;
   top: -150px;
   left: -50px;
 }
