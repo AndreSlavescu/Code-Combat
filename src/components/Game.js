@@ -7,61 +7,60 @@ const firestore = firebase.firestore();
 
 function Game() {
   const [widgetHTML, setWidgetHTML] = useState("");
+  const [players, setPlayers] = useState(0);
   let { id } = useParams();
 
-  const updateGame = async () => {
-    const gamesRef = firestore.collection("games").doc(id);
-    const doc = await gamesRef.get();
-    if (!doc.exists) {
-      return (
-        <div>
-          <div></div>
-        </div>
-      );
-    } else {
-      if (doc.data().players > 1) setWidgetHTML(doc.data().widgetHTML);
-    }
+  const updatePlayerCount = async () => {
+    const game = firestore.collection("games").doc(id);
+    const increment = firebase.firestore.FieldValue.increment(1);
+    game.update({
+      players: increment,
+    });
   };
 
   const getGame = () => {
     return new Promise((resolve, reject) => {
       firestore.collection("games").onSnapshot((snapshot) => {
         console.log("onSnapshot Called!");
-        let updatedData = snapshot.docs.map((doc) => doc.data());
+        let updatedData = snapshot.docs.map((doc) => {
+          let data = doc.data()[0];
+          return doc.data();
+        });
         resolve(updatedData);
       }, reject);
     });
   };
 
   useEffect(() => {
-    // Update the document title using the browser API
     getGame().then((doc) => {
-        console.log(!doc[0].gameOver);
-        console.log(doc[0].widgetHTML);
-      if (doc[0].players > 1 && !doc[0].gameOver) {
-        setWidgetHTML(doc[0].widgetHTML);
+      setPlayers(doc[0].players);
+      setWidgetHTML(doc[0].widgetHTML);
+      if (/*doc[0].*/ players == 0 && doc[0].players < 2) {
+        updatePlayerCount();
       }
     });
   });
 
   return (
     <div>
-      <div>
-        <Widget HTML={widgetHTML} />
-      </div>
+      <div>{players > 1 ? <Widget HTML={widgetHTML} /> : <div />}</div>
     </div>
   );
 }
 
 function Widget({ HTML }) {
+  /*
   return (
     <iframe
       id="ifrm"
-      src={"https://www.skillstack.com/embedchallenges/" + HTML}
+      src={"https://www.skillstack.com/embedchallenges/?" + HTML}
       width="100%"
       height="600"
     ></iframe>
   );
+  */
+
+  return <div>{HTML}</div>;
 }
 
 export default Game;
