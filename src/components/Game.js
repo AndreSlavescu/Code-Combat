@@ -35,7 +35,7 @@ function Game() {
     getGame().then((doc) => {
       setPlayers(doc[0].players);
       setWidgetHTML(doc[0].widgetHTML);
-      if (/*doc[0].*/ players == 0 && doc[0].players < 2) {
+      if (doc[0].players >= 0 && doc[0].players < 2) {
         updatePlayerCount();
       }
     });
@@ -49,7 +49,7 @@ function Game() {
 }
 
 function Widget({ HTML }) {
-  /*
+
   return (
     <iframe
       id="ifrm"
@@ -58,7 +58,7 @@ function Widget({ HTML }) {
       height="600"
     ></iframe>
   );
-  */
+
 
   return <div>{HTML}</div>;
 }

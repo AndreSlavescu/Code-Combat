@@ -64,7 +64,7 @@ function App() {
           <nav>
             <ul class="nav__links">
               <li>
-                <Link to="/lobby">Competitive</Link>
+                <Link to="/game/test">Competitive</Link>
               </li>
               <li>
                 <Link to="/lobby">Unranked</Link>
