@@ -28,7 +28,7 @@ footer {
   background-color: #24252a;
   bottom: -10px;
   position: absolute;
-  height: 10rem;
+  height: 7.5rem;
   left: 0px;
   right: 0px;
 }
@@ -47,8 +47,8 @@ footer {
 }
 
 .logo-img {
-  max-width: 5rem;
-  max-height: 5rem;
+ height: 5rem;
+
 }
 
 .nav__links {

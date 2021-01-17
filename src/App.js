@@ -61,7 +61,7 @@ function App() {
         <header>
           <a class="logo" href="/">
             <img
-              src="https://i.imgur.com/ADMwlOq.png"
+              src="https://cdn.discordapp.com/attachments/799443679495323712/800265029361991720/logo8.png"
               alt="logo"
               class="logo-img"
             />
