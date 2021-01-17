@@ -52,7 +52,7 @@ function App() {
 
   return (
     <Router className="App">
-      {user && registerUser() ? (
+      {true ? (
         <header>
           <a class="logo" href="/">
             <img
@@ -74,8 +74,8 @@ function App() {
               </li>
             </ul>
           </nav>
-          <a class="cta" href="/">
-            <SignOut />
+          <a class="cta" href="/leaderboard">
+            Leaderboard
           </a>
         </header>
       ) : (

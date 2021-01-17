@@ -15,8 +15,7 @@ function SignIn() {
     <button
       className="sign-in"
       onClick={() => {
-        signInWithGoogle()
-
+        signInWithGoogle();
       }}
     >
       Sign in using Google
