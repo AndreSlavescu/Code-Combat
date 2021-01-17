@@ -89,7 +89,10 @@ footer {
 }
 
 
-
+.medal{
+  margin-top: 50px;
+  width: 200px;
+}
 .landing-bg {
   background-size: cover;
   background-image: url("./images/backg.png");
